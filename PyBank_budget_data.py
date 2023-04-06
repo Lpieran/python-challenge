@@ -1,6 +1,6 @@
 import csv
 
-csv_file_path = r"C:\Users\l1_2p\OneDrive\Desktop\Challenge_3\Starter_Code\PyBank\Resources\budget_data.csv"
+csv_file_path = r"https://github.com/Lpieran/python-challenge/blob/main/budget_data.csv"
 
 # Initialize variables
 total_months = 0
