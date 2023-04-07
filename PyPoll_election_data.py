@@ -6,7 +6,7 @@ candidates = []
 votes_per_candidate = {}
 
 # Read the CSV file and loop through each row
-with open('C:/Users/l1_2p/OneDrive/Desktop/Challenge_3/Starter_Code/PyPoll/Resources/election_data.csv', 'r') as csvfile:
+with open('election_data.csv', 'r') as csvfile:
     csvreader = csv.reader(csvfile)
     next(csvreader)  # Skip header row
     for row in csvreader:
@@ -41,7 +41,7 @@ print(f"Winner: {winning_candidate}")
 print("-------------------------")
 
 # Export results to a text file
-with open('C:/Users/l1_2p/OneDrive/Desktop/Challenge_3/Starter_Code/PyPoll/election_results.txt', 'w') as txtfile:
+with open('python-challenge/election_results.txt', 'w') as txtfile:
     txtfile.write("Election Results\n")
     txtfile.write("-------------------------\n")
     txtfile.write(f"Total Votes: {total_votes}\n")

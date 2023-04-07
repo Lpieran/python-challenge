@@ -1,6 +1,6 @@
 import csv
 
-csv_file_path = r"C:\Users\l1_2p\OneDrive\Desktop\Challenge_3\python-challenge\budget_data.csv"
+csv_file_path = "budget_data.csv"
 
 # Initialize variables
 total_months = 0
@@ -55,7 +55,7 @@ Greatest Decrease in Profits: {greatest_decrease[0]} (${greatest_decrease[1]})""
 print(output)
 
 # Write results to a text file
-output_path = r"C:\Users\l1_2p\OneDrive\Desktop\Challenge_3\python-challenge"
+output_path = "python-challenge/budget_analysis.txt"
 
 with open(output_path, "w") as output_file:
     output_file.write(output)
