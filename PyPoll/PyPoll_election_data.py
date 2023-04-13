@@ -1,4 +1,11 @@
 import csv
+import os
+
+# Set input file path
+input_file = os.path.join("Resources", "election_data.csv")
+
+# Set output file path
+output_file = os.path.join("Analysis_output", "election_results.txt")
 
 # Initialize variables
 total_votes = 0
@@ -6,7 +13,7 @@ candidates = []
 votes_per_candidate = {}
 
 # Read the CSV file and loop through each row
-with open('election_data.csv', 'r') as csvfile:
+with open(input_file, 'r') as csvfile:
     csvreader = csv.reader(csvfile)
     next(csvreader)  # Skip header row
     for row in csvreader:
@@ -24,32 +31,25 @@ with open('election_data.csv', 'r') as csvfile:
 winning_candidate = ""
 winning_votes = 0
 
-# Print results to console
-print("Election Results")
-print("-------------------------")
-print(f"Total Votes: {total_votes}")
-print("-------------------------")
+# Format results
+output = f"""Election Results
+-------------------------
+Total Votes: {total_votes}
+-------------------------"""
 for candidate in candidates:
     votes = votes_per_candidate[candidate]
     percentage = votes / total_votes * 100
-    print(f"{candidate}: {percentage:.3f}% ({votes})")
+    output += f"\n{candidate}: {percentage:.3f}% ({votes})"
     if votes > winning_votes:
         winning_candidate = candidate
         winning_votes = votes
-print("-------------------------")
-print(f"Winner: {winning_candidate}")
-print("-------------------------")
+output += f"\n-------------------------\nWinner: {winning_candidate}\n-------------------------"
+
+# Print results to console
+print(output)
 
 # Export results to a text file
-with open('python-challenge/election_results.txt', 'w') as txtfile:
-    txtfile.write("Election Results\n")
-    txtfile.write("-------------------------\n")
-    txtfile.write(f"Total Votes: {total_votes}\n")
-    txtfile.write("-------------------------\n")
-    for candidate in candidates:
-        votes = votes_per_candidate[candidate]
-        percentage = votes / total_votes * 100
-        txtfile.write(f"{candidate}: {percentage:.3f}% ({votes})\n")
-    txtfile.write("-------------------------\n")
-    txtfile.write(f"Winner: {winning_candidate}\n")
-    txtfile.write("-------------------------\n")
+with open(output_file, 'w') as txtfile:
+    txtfile.write(output)
+
+

@@ -1,9 +1,11 @@
 import csv
 import os
 
-# Set file paths
+# Set input file path
 csv_file_path = os.path.join("Resources", "budget_data.csv")
-output_path = os.path.join("Analysis", "budget_analysis.txt")
+
+# Set output file path
+output_path = os.path.join("Analysis_output", "budget_analysis.txt")
 
 # Initialize variables
 total_months = 0
@@ -60,3 +62,4 @@ print(output)
 # Write results to a text file
 with open(output_path, "w") as output_file:
     output_file.write(output)
+
